@@ -21,6 +21,7 @@ class CreateUsersTableV2 extends Migration
             $table->string('youtube')->nullable()->change();
             $table->string('instegram')->nullable()->change();
             $table->string('linkedin')->nullable()->change();
+            $table->string('avatar')->nullable()->change();
         });
     }
 

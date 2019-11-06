@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('youtube');
             $table->string('instegram');
             $table->string('linkedin');
+            $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
         });
