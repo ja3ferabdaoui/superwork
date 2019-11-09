@@ -12,10 +12,28 @@
 */
 
 Route::get('/', function () {
-    return view('/auth.login');
+    return redirect()->route('login');
 });
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth','admin'],
+              'prefix' => 'admin'], 
+               function () {
+                    Route::get('/', 'AdminControllers\HomeController@index');
+                    Route::get('home', 'AdminControllers\HomeController@index')->name('admin.home');
+                    Route::resource('clients','ClientController');
+                    Route::resource('admins','AdminController');
+               });
+
+Route::group(['middleware' => ['auth','client']], 
+               function () {
+                    Route::get('/', 'ClientControllers\HomeController@index');
+                    Route::get('home', 'ClientControllers\HomeController@index')->name('client.home');
+               });
+
+
+/*
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin', function () {
         return view('user.indexadmin', compact('users'));
@@ -33,3 +51,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users','UserController');
     Route::resource('products','ProductController');
 });
+*/
