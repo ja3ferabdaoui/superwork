@@ -48,10 +48,7 @@
                     </a> </li>
 
                 </ul>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
-                        {{ Auth::user()->name }} <span class="user_img"></span>
-                    </a>
+
                 <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -111,6 +108,13 @@
                                 <li><a href="{!! url('users/roles') !!}">Rôles</a></li>
                         </div>
                     </div>
+                    <div class="profile-text">
+                            <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> Contact </a>
+                            <div class="dropdown-menu animated flipInY">
+                                    <li><a href="{!! url('users') !!}">Voir Les messages reçu</a></li>
+
+                            </div>
+                        </div>
             </div>
     </aside>
     <div class="page-wrapper">
