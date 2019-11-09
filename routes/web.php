@@ -25,8 +25,8 @@ Route::group(['middleware'=>'auth'],function(){
       return view('dashbord');
     })->name('dashbord');
 });
-Route::get('profile', 'UserProfileController@show')->middleware('auth')->name('profile.show');
-Route::post('profile', 'UserProfileController@update')->middleware('auth')->name('profile.update');
+// Route::get('profile', 'UserProfileController@show')->middleware('auth')->name('profile.show');
+// Route::post('profile', 'UserProfileController@update')->middleware('auth')->name('profile.update');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles','RoleController');
