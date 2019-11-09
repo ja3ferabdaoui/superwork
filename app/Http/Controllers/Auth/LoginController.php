@@ -77,12 +77,28 @@ class LoginController extends Controller
      */
 
     public function authenticated($request , $user){
-        if( $user->is_admin() ) {
-            return redirect()->intended('/dashbord');
+        if( $user->isAdmin() ) {
+            return redirect()->intended('/admin/home');
         }
-        else {
-            return redirect()->intended('/users');
-    
+        elseif( $user->isClient() ) {
+            return redirect()->intended('/home');
+        }
+    }
+
+     /**
+     * Handle an authentication attempt.
+     *
+     * @param  \Illuminate\Http\Request $request
+     *
+     * @return Response
+     */
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            return redirect()->intended('dashboard');
         }
     }
 
