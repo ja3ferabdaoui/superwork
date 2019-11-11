@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Conversation extends Model
 {
     //
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

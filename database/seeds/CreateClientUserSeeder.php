@@ -13,7 +13,7 @@ class CreateClientUserSeeder extends Seeder
      */
     public function run()
     {
-       /* $user = User::create([
+        $user = User::create([
             'email' => 'client@gmail.com',
             'username'=>'client',
             'role_id' => 2,
@@ -24,8 +24,9 @@ class CreateClientUserSeeder extends Seeder
         $client = Client::create([
             'first_name' => 'Aymen', 
             'last_name' => 'Bouein', 
-            'user_id' => $user->id
-        ]);  */
+            'user_id' => $user->id,
+            'avatar' => 'default_avatar.png'
+        ]); 
 
 
 
@@ -40,7 +41,8 @@ class CreateClientUserSeeder extends Seeder
         $client1 = Client::create([
             'first_name' => 'Ali', 
             'last_name' => 'Ali', 
-            'user_id' => $user1->id
+            'user_id' => $user1->id,
+            'avatar' => 'default_avatar.png'
         ]); 
 
         $user2 = User::create([
@@ -54,7 +56,8 @@ class CreateClientUserSeeder extends Seeder
         $client2 = Client::create([
             'first_name' => 'Salem', 
             'last_name' => 'Salem', 
-            'user_id' => $user2->id
+            'user_id' => $user2->id,
+            'avatar' => 'default_avatar.png'
         ]); 
     }
 }
