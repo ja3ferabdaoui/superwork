@@ -2,9 +2,11 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- User profile -->
-                <div class="user-profile" style="background: url(materials/assets/images/background/user-info.jpg) no-repeat;">
+                <div class="user-profile" style="background: url(materials/assets/images/background/user-ino.jpg) no-repeat;">
                     <!-- User profile image -->
-                    <div class="profile-img"> <img src="{{ asset('materials/assets/images/users/profile.png') }}" alt="user" /> </div>
+                       <div class="profile-img"><img src="{{ asset('storage/' . Auth::user()->userAccount->avatar) }}" alt="user" >
+                       </div>
+                     
                     <!-- User profile text-->
                     <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ Auth::user()->userAccount->first_name . " " . Auth::user()->userAccount->last_name }}</a>
                         <div class="dropdown-menu animated flipInY">
@@ -26,14 +28,19 @@
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Administrators</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="users">Administrators List</a></li>
-                                <li><a href="users/create">Add Administrator</a></li>
+                                <li><a href="/admin/admins">Administrators List</a></li>
+                                <li><a href="/admin/admins/create">Add Administrator</a></li>
                             </ul>
                         </li>
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Clients</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="admin/clients">Clients List</a></li>
-                                <li><a href="admin/clients/create">Add Client</a></li>
+                                <li><a href="/admin/clients">Clients List</a></li>
+                                <li><a href="/admin/clients/create">Add Client</a></li>
+                            </ul>
+                        </li>
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Conversations</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="/admin/conversations">Conversations</a></li>
                             </ul>
                         </li>
                       

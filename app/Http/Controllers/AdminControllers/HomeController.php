@@ -25,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $title = "Dashboard";
+        $subTitle = "Dashboard";
         $clientsCount = DB::table('clients')->count();       
         $clientsNotActivatedCount = DB::table('clients')
             ->join('users', 'users.id', '=', 'clients.user_id')
@@ -34,7 +36,7 @@ class HomeController extends Controller
         $conversationsCount = DB::table('conversations')->count();
         $conversationsNotVIewedCount = DB::table('conversations')->where('status', 0)->count();
         $conversationNotViewedAverage = ($conversationsNotVIewedCount == 0) ? 0 : number_format((float)$conversationsNotVIewedCount / $conversationsCount * 100, 2, '.', '');
-        return view('administration.dashboard.index',compact('clientsCount', 'conversationsCount','conversationsNotVIewedCount','conversationNotViewedAverage',
+        return view('administration.dashboard.index',compact('title', 'subTitle','clientsCount', 'conversationsCount','conversationsNotVIewedCount','conversationNotViewedAverage',
         'clientInactivatedAverage', 'clientsNotActivatedCount' ));
     }
 }

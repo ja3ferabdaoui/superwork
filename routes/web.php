@@ -18,12 +18,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => ['auth','admin'],
-              'prefix' => 'admin'], 
+              'prefix' => 'admin' ],
                function () {
                     Route::get('/', 'AdminControllers\HomeController@index');
                     Route::get('home', 'AdminControllers\HomeController@index')->name('admin.home');
-                    Route::resource('clients','ClientController');
-                    Route::resource('admins','AdminController');
+                    Route::resource('clients','AdminControllers\ClientController');
+                    Route::resource('admins','AdminControllers\AdminController');
+                    Route::resource('conversations','AdminControllers\ConversationController');
+                    Route::post('clients/{id}/lock','AdminControllers\ClientController@lock');
+                    Route::post('clients/{id}/unlock','AdminControllers\ClientController@unlock');
+                    Route::post('admins/{id}/lock','AdminControllers\AdminController@lock');
+                    Route::post('admins/{id}/unlock','AdminControllers\AdminController@unlock');
                });
 
 Route::group(['middleware' => ['auth','client']], 

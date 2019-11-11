@@ -10,9 +10,12 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('materials/assets/images/favicon.png') }}">
-    <title>Material Pro Admin Template - The Most Complete & Trusted Bootstrap 4 Admin Template</title>
+    <title>SuperWorks</title>
     <!-- Bootstrap Core CSS -->
     <link href= "{{ asset('materials/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    @yield("wizardStyles")
+    <link href="{{ asset('materials/assets/plugins/wizard/steps.css') }}" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href= "{{ asset('materials/css/style.css') }}" rel="stylesheet">
     <!-- You can change the theme colors from here -->
@@ -65,10 +68,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">{{$title}}</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">{{$subTitle}}</li>
                         </ol>
                     </div>
                 </div>

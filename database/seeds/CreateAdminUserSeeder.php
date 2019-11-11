@@ -24,7 +24,8 @@ class CreateAdminUserSeeder extends Seeder
         $admin = Admin::create([
             'first_name' => 'Aymen', 
             'last_name' => 'Bouein', 
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'avatar' => 'default_avatar.png'
         ]);  
     }
 }
