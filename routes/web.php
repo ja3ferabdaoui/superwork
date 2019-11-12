@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth','admin'],
+Route::group(['middleware' => ['auth','checkAccountStatus','admin'],
               'prefix' => 'admin' ],
                function () {
                     Route::get('/', 'AdminControllers\HomeController@index');
@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth','admin'],
                     Route::post('admins/{id}/unlock','AdminControllers\AdminController@unlock');
                });
 
-Route::group(['middleware' => ['auth','client']], 
+Route::group(['middleware' => ['auth','checkAccountStatus','client']], 
                function () {
                     Route::get('/', 'ClientControllers\HomeController@index');
                     Route::get('home', 'ClientControllers\HomeController@index')->name('client.home');
