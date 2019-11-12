@@ -168,7 +168,7 @@ class AdminController extends Controller
 
     public function unlock($id){
         $admin = Admin::findOrFail($id);
-        $admin->user->status =0;
+        $admin->user->status =1;
         $admin->user->save();
         return \App::make('redirect')->back()->with("success","Admin account locked successfully");
     }
