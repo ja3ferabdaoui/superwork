@@ -51,7 +51,11 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
+        @if(Auth::user()->isAdmin())
         @include('layout.partials.sideBar')
+        @else
+        @include('layout.partials.sideBarClient')
+        @endif
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->

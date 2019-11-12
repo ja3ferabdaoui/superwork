@@ -24,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $title = "Dashboard";
+        $subTitle = "Dashboard";
+  
+        return view('clients.dashboard.index',compact('title', 'subTitle' ));
     }
 }
