@@ -11,11 +11,16 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 use Mail;
-
+use Auth;
 class UserController extends Controller
 {
 
     protected $user_gestion;
+
+    public function __construct()
+    {
+    $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +29,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $data = User::orderBy('id','DESC')->paginate(5);
-        return view('users.indexadmin',compact('data'))
+        return view('administration.users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 

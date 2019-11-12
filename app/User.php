@@ -4,20 +4,16 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
-
 class User extends Authenticatable
 {
     use Notifiable;
-    use HasRoles;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name','username', 'email', 'password',
+        'username', 'role_id', 'status', 'email', 'password',
     ];
 
     /**
@@ -29,22 +25,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function role()
+    {
+        return $this->belongsTo('App\Role');
+    }
  
-    public function is_admin(){
+    public function isAdmin(){
+        return $this->role->role == "admin";
+    }
 
-        if ($this->admin)
-        {
-            return true;
+    public function isClient(){
+        return $this->role->role == "client";
+    }
+
+    public function userAccount(){
+        if($this->isAdmin()){
+            return $this->hasOne('App\Admin');
+        } elseif($this->isClient()){
+            return $this->hasOne('App\Client');
         }
-        return false;
-        
     }
 }
