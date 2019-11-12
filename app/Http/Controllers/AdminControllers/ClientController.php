@@ -260,14 +260,14 @@ class ClientController extends Controller
 
     public function lock($id){
         $client = Client::findOrFail($id);
-        $client->user->status =0;
+        $client->user->status = 0;
         $client->user->save();
         return \App::make('redirect')->back()->with("success","Client account locked successfully");
     }
 
     public function unlock($id){
         $client = Client::findOrFail($id);
-        $client->user->status =0;
+        $client->user->status = 1;
         $client->user->save();
         return \App::make('redirect')->back()->with("success","Client account locked successfully");
     }

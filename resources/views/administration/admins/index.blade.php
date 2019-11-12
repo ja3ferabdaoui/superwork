@@ -64,9 +64,9 @@
 
     <script>
          function lock(id){
-            document.body.innerHTML += '<form id="lodk"  method="post">{{ csrf_field() }}</form>';
-            document.getElementById('lodk').action = '/admin/admins/'+ id + '/lock' ;
-            document.getElementById("lodk").submit();
+            document.body.innerHTML += '<form id="lock"  method="post">{{ csrf_field() }}</form>';
+            document.getElementById('lock').action = '/admin/admins/'+ id + '/lock' ;
+            document.getElementById("lock").submit();
         }
         function unlock(id){    
             document.body.innerHTML += '<form id="unlock"  method="post">{{ csrf_field() }}</form>';
