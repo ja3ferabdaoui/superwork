@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth','checkAccountStatus','admin'],
                     Route::resource('clients','AdminControllers\ClientController');
                     Route::resource('admins','AdminControllers\AdminController');
                     Route::resource('conversations','AdminControllers\ConversationController');
+                    Route::post('conversations/{id}/respond','AdminControllers\ConversationController@respond')->name('conversations.respond');
+
                     Route::post('clients/{id}/lock','AdminControllers\ClientController@lock');
                     Route::post('clients/{id}/unlock','AdminControllers\ClientController@unlock');
                     Route::post('admins/{id}/lock','AdminControllers\AdminController@lock');

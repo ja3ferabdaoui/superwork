@@ -37,7 +37,20 @@ class ConversationController extends Controller
 
     public function show($id)
     {
-
+        $conversation = Conversation::find($id);
+        $conversation->status = 1;
+        $conversation->save();
+        $response = Conversation::where("conversation_id", $conversation->id)->first();
+        if($response != null){
+            $conversation->response =$response->text;
+        }
+        else {
+            $conversation->response ="";
+        }
+         
+        $title = "Conversation";
+        $subTitle = "Respond To Conversation";
+        return view('administration.conversations.show',compact('title', 'subTitle' , 'conversation'));
     }
 
     /**
@@ -58,14 +71,16 @@ class ConversationController extends Controller
         return view('administration.conversations.create',compact('title', 'subTitle','countries'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function respond(Request $request,$id)
     {
-        
+        Conversation::create([
+            "subject" => "reponse",
+            "text" => $request["text"],
+            "user_id" => auth()->user()->id,
+            "status" => 0,
+            "conversation_id" => $id
+        ]);
+        return redirect()->route('conversations.show', ['id' => $id]);
     }
 }
