@@ -6,7 +6,7 @@
                     <!-- User profile image -->
                        <div class="profile-img"><img src="{{ asset('storage/' . Auth::user()->userAccount->avatar) }}" alt="user" >
                        </div>
-                     
+
                     <!-- User profile text-->
                     <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ Auth::user()->userAccount->first_name . " " . Auth::user()->userAccount->last_name }}</a>
                         <div class="dropdown-menu animated flipInY">
@@ -25,11 +25,15 @@
                         <li class="nav-small-cap">NAVIGATION</li>
                         <li>
                             <li><a href="/"><i class="mdi mdi-gauge"></i>Dashboard</a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i>Facebook </a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i>Youtube </a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i>Instagram </a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i>Twitter </a></li>
                         </li>
-                        
-                       
-                      
-                      
+
+
+
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -37,10 +41,10 @@
             <!-- End Sidebar scroll-->
             <!-- Bottom points-->
             <div class="sidebar-footer">
-                <!-- item-->
+                {{-- <!-- item-->
                 <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
                 <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a> --}}
                 <!-- item-->
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
             </div>

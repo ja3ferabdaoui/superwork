@@ -65,7 +65,7 @@ class AdminController extends Controller
         ]);
         $admin = Admin::find($id);
         $type = $request->get('update_part') ;
-        
+
         if($type == "avatar"){
             $avatar_input = $request->only('avatar');
             if(!empty($user_input['password'])){
@@ -75,15 +75,15 @@ class AdminController extends Controller
             $image_extension = "";
             if(!empty($avatar_input['avatar'])){
             $image = $avatar_input["avatar"] ;
-            preg_match("/data:image\/(.*?);/",$image,$image_extension); 
-            $image = preg_replace('/data:image\/(.*?);base64,/','',$image); 
+            preg_match("/data:image\/(.*?);/",$image,$image_extension);
+            $image = preg_replace('/data:image\/(.*?);base64,/','',$image);
             $image = str_replace(' ', '+', $image);
             $imageName = 'image_' . $admin->user->username . '.' . $image_extension[1];
             Storage::disk('public')->put($imageName,base64_decode($image));
             $avatar_input['avatar']= $imageName;
             $admin->update($avatar_input);
         }
-        }   
+        }
         elseif($type == "connexion"){
             $user_input = $request->only(["username", 'email','password']);
             $admin->user->update($user_input);
@@ -92,7 +92,7 @@ class AdminController extends Controller
             $admin_input = $request->only(["first_name", 'last_name']);
             $admin->update($admin_input);
         }
-        
+
         return redirect()->route('admins.show', $id)
                         ->with('success','Admin updated successfully');
     }
@@ -133,12 +133,12 @@ class AdminController extends Controller
         $image_extension = "";
         if($input["avatar"] != null){
             $image = $input["avatar"] ;
-            preg_match("/data:image\/(.*?);/",$image,$image_extension); 
-            $image = preg_replace('/data:image\/(.*?);base64,/','',$image); 
+            preg_match("/data:image\/(.*?);/",$image,$image_extension);
+            $image = preg_replace('/data:image\/(.*?);base64,/','',$image);
             $image = str_replace(' ', '+', $image);
             $imageName = 'image_' . $user->username . '.' . $image_extension[1];
             Storage::disk('public')->put($imageName,base64_decode($image));
-        }    
+        }
         $admin = Admin::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
@@ -146,12 +146,12 @@ class AdminController extends Controller
             'avatar' => $imageName
         ]);
 
-       $data = array('name'=>$user->username);
+       $data = array('username'=>$user->username);
 
        Mail::send(['text'=>'mail'], $data, function($message) {
           $message->to('jaafar.zbeiba@gmail.com', 'Super fich ')->subject
              ('Laravel Basic Testing Mail');
-          $message->from('jaafar.zbeiba@esprit.tn',$data->name);
+          $message->from('jaafar.zbeiba@esprit.tn');
        });
        echo "Basic Email Sent. Check your inbox.";
         return redirect()->route('admins.index')
