@@ -4,72 +4,39 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('materials/assets/images/favicon.png') }}">
     <title>SuperWorks</title>
-    <!-- Bootstrap Core CSS -->
     <link href= "{{ asset('materials/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     @yield("wizardStyles")
     <link href="{{ asset('materials/assets/plugins/wizard/steps.css') }}" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link href= "{{ asset('materials/css/style.css') }}" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
     <link href= "{{ asset('materials/css/colors/green-dark.css') }}" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+
 @yield('pageStyles')
 </head>
 
 <body class="fix-header card-no-border">
-    <!-- ============================================================== -->
-    <!-- Preloader - style you can find in spinners.css -->
-    <!-- ============================================================== -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
     </div>
-    <!-- ============================================================== -->
-    <!-- Main wrapper - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <div id="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Topbar header - style you can find in pages.scss -->
-        <!-- ============================================================== -->
+
         @include('layout.partials.Topbar')
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         @if(Auth::user()->isAdmin())
         @include('layout.partials.sideBar')
         @else
         @include('layout.partials.sideBarClient')
         @endif
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
+
         <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
+
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
+
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
                         <h3 class="text-themecolor m-b-0 m-t-0">{{$title}}</h3>
@@ -79,26 +46,15 @@
                         </ol>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
+
                 <div class="row">
                     <div class="col-12">
-                        
+
                                 @yield('content')
-                  
+
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
+
                 <div class="right-sidebar">
                     <div class="slimscrollright">
                         <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
@@ -149,16 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
             @include('layout.partials.footer')
             <!-- ============================================================== -->
             <!-- End footer -->
@@ -177,7 +124,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
- 
+
     <script src= "{{ asset('materials/assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src= "{{ asset('materials/assets/plugins/bootstrap/js/popper.min.js') }}"></script>

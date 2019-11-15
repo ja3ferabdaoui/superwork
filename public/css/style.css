@@ -546,3 +546,24 @@
     body {
         color: #fff;
     }
+    .footer {
+        color: #fff;
+        font-size: 17px;
+        text-align: center;
+        letter-spacing: 2px;
+    }
+    .user-profile .profile-img {
+        max-width: 115px;
+        width: 100%;
+        padding: 0px;
+        border-radius: 0px;
+        margin: 0 auto;
+    }
+
+    .user-profile .profile-img img {
+        border-radius: 0px;
+    }
+    h1 {
+        color: #000 !important;
+        letter-spacing: 3.2px;
+    }
