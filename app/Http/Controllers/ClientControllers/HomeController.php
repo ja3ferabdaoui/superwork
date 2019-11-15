@@ -26,7 +26,12 @@ class HomeController extends Controller
     {
         $title = "Dashboard";
         $subTitle = "Dashboard";
-  
+
         return view('clients.dashboard.index',compact('title', 'subTitle' ));
+    }
+    public function showFacebook()
+    {
+          return view('clients.dashboard.facebook');
+
     }
 }
