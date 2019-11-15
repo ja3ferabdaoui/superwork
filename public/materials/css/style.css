@@ -8151,3 +8151,27 @@ a.list-group-item:hover {
   .form-material .form-control {
     color: #fff;
 }
+.user-profile .profile-img {
+    max-width: 115px;
+    width: 100%;
+    padding: 0px;
+    border-radius: 0px;
+    margin: 0 auto;
+}
+
+.user-profile .profile-img img {
+    border-radius: 0px;
+}
+.footer{
+    text-align: center;
+    font-size: 17px;
+    color:#fff;
+    letter-spacing: 1.5px;
+}
+.dw-user-box {
+    display: flex;
+}
+.user-profile .profile-text a {
+    color: #fff !important;
+    text-align: center;
+}
