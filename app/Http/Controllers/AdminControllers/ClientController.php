@@ -248,12 +248,11 @@ class ClientController extends Controller
 
        $data = array('name'=>$user->username);
 
-       Mail::send(['text'=>'mail'], $data, function($message) {
+       Mail::send(['text'=>'mail'], ['data' => $data], function($message) {
           $message->to('jaafar.zbeiba@gmail.com', 'Super fich ')->subject
              ('Laravel Basic Testing Mail');
-          $message->from('jaafar.zbeiba@esprit.tn',$data->name);
+          $message->from('jaafar.zbeiba@esprit.tn',$data['name']);
        });
-       echo "Basic Email Sent. Check your inbox.";
         return redirect()->route('clients.index')
                         ->with('success','User created successfully');
     }
