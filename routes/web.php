@@ -36,6 +36,16 @@ Route::group(['middleware' => ['auth','checkAccountStatus','admin'],
 Route::group(['middleware' => ['auth','checkAccountStatus','client']],
                function () {
                     Route::get('/', 'ClientControllers\HomeController@index');
+                    Route::get('profile', 'ClientControllers\ClientController@profile')->name('profile');
+                    Route::patch('profile', 'ClientControllers\ClientController@update')->name('profile.update');
+                    Route::get('conversations', 'ClientControllers\ConversationController@index')->name('client.conversations');
+                    Route::get('conversations/{id}', 'ClientControllers\ConversationController@show')->name('client.show.conversations');
+
+                    Route::get('conversations/create', 'ClientControllers\ConversationController@create')->name('client.create.conversation');
+
+                   
+                    
+                    Route::post('conversations', 'ClientControllers\ConversationController@store')->name('client.store.conversation');
                     Route::get('home', 'ClientControllers\HomeController@index')->name('client.home');
                      Route::get('facebook', 'ClientControllers\HomeController@showFacebook')->name('client.facebook');
                });

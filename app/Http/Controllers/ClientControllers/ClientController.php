@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\AdminControllers;
+namespace App\Http\Controllers\ClientControllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
@@ -9,6 +9,7 @@ use App\Account;
 use App\Traits\CountriesTrait;
 use Illuminate\Support\Facades\Storage;
 use Mail;
+use Auth;
 class ClientController extends Controller
 {
     use CountriesTrait;
@@ -20,22 +21,12 @@ class ClientController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin');
+        $this->middleware('client');
     }
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
+
+    public function profile()
     {
-        $clients = Client::all();
-        $title = "Clients";
-        $subTitle = "List Clients";
-        return view('administration.clients.index',compact('title', 'subTitle' , 'clients'));
-    }
-    public function show($id)
-    {
+        $id = Auth::user()->userAccount->id;
         $client = Client::find($id);
         $accountsTmp = $client->accounts;
         $accounts = array("facebook_account" => array("account_token" => "", "status" => 0),
@@ -62,9 +53,9 @@ class ClientController extends Controller
             }
         }
         $countries = $this->countriesList();
-        $title = "Client";
-        $subTitle = "Profile Client";
-        return view('administration.clients.profile',compact('title', 'subTitle' , 'client','countries','accounts'));
+        $title = "Profile";
+        $subTitle = "Mon Profile";
+        return view('clients.profile',compact('title', 'subTitle' , 'client','countries','accounts'));
     }
     /**
      * Update the specified resource in storage.
@@ -73,9 +64,10 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //dd($request);
+        $id = Auth::user()->userAccount->id;
         $this->validate($request, [
             'username' => 'min:3|unique:users',
             'email' => 'email|unique:users,email',

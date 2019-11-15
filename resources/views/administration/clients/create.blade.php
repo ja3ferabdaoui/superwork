@@ -186,9 +186,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group ">
-                                                    <label class="control-label">Etat </label>
+                                                    <label class="control-label">Numéro de téléphone</label>
                                                     <div class="controls">
-                                                    {!! Form::text('state', null, array('id' => 'state','placeholder' => 'Etat','class' => 'form-control')) !!}
+                                                    {!! Form::text('phone', null, array('id' => 'phone','placeholder' => 'Numéro de téléphone','class' => 'form-control')) !!}
                                                 </div></div> 
                                             </div>
                                             <div class="col-md-6">

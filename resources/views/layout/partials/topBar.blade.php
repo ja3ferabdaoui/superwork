@@ -4,7 +4,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <!-- Logo icon -->
                         <b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -61,7 +61,13 @@
                                             </div>
                                             <div class="u-text">
                                                 <h4>{{ Auth::user()->userAccount->first_name . " " . Auth::user()->userAccount->last_name }}</h4>
-                                                <p class="text-muted">{{ Auth::user()->email }}</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a></div>
+                                                <p class="text-muted">{{ Auth::user()->email }}</p>
+                                                @if(Auth::user()->isAdmin())
+                                                <a href="{!! route('admins.show', ['id'=> Auth::user()->id]) !!}" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                                                @else
+                                                <a href="{!! route('clients.show', ['id'=> Auth::user()->id]) !!}" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                                                @endif
+                                                </div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>

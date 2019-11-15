@@ -38,7 +38,15 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
+                                   
+                                
                             </div>
+                            @if ($errors->has('locked'))
+                            <span class="text-danger">
+                                        <strong>{{ $errors->first('locked') }}</strong>
+                            </span>
+                            @endif
+
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">

@@ -29,6 +29,14 @@
                             <li><a href="#"><i class="fa fa-youtube"></i>Youtube </a></li>
                             <li><a href="#"><i class="fa fa-instagram"></i>Instagram </a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i>Twitter </a></li>
+                            <li><a href="/profile"><i class="mdi mdi-account"></i>Profile</a></li>
+                            
+                            <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Conversations</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                 <li><a href="/conversations">Conversation</a></li>
+                                 <li><a href="/conversations/create">Nouvelle Conversation</a></li>
+                            </ul>
+                        </li>
                         </li>
 
 

@@ -8,7 +8,7 @@ class CheckAccountStatus
 {
     /**
      * Handle an incoming request.
-     *
+     *Your custom message here.
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
@@ -19,7 +19,8 @@ class CheckAccountStatus
         //If the status is not approved redirect to login 
         if(auth()->user()->status != 1){
             auth()->logout();
-            return redirect('/login')->with('erro_login', 'Your Account is locked, contact th Administration !');
+            
+            return redirect('/login')->withErrors(['locked' => ["Votre compte est bloquée ! Contactez l'adlinistrateur"]]);
         }
         return $response;
     }

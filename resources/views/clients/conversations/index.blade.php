@@ -28,18 +28,20 @@
                                                 </td>
                                                 <td>{{$conversation->subject}}</td>
                                                 <td>{{$conversation->text}}</td>
-                                                @if($conversation->status == 1)
-                                                <td><span class="badge label-success">vu</span></td>
+                                                @if($conversation->status == 1 && $conversation->conversation_id != null)
+                                                <td><span class="badge label-success">vous avez une reponse</span></td>
+                                                @elseif($conversation->status == 1)
+                                                <td><span class="badge label-info">vu</span></td>
                                                 @else
                                                 <td><span class="badge label-warning">pas encore</span></td>
                                                 @endif
                                               
                                                 <td>{{$conversation->created_at}}</td>
                                                 <td>
-                                                <a href="{!! route('conversations.show', ['id'=>$conversation->id]) !!}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-pencil"></i> </button></a>
+                                                <a href="{!! route('client.show.conversations', ['id'=>$conversation->id]) !!}"><button type="button" class="btn btn-info btn-circle"><i class="fa fa-eye"></i> </button></a>
                                                 </td>
                                             </tr>
-                                         @endforeach   
+                                         @endforeach    
                                         </tbody>
                                   
                                     </table>

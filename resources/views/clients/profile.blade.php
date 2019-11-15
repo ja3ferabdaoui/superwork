@@ -79,7 +79,7 @@
                                             </div>
                                             <input class="file-upload" type="file" accept="image/*"/>
                                      </div>
-                                     {!! Form::open(array('route' => ['clients.update', $client->id],'method'=>'PATCH', 'novalidate', 'class' => "form-horizontal form-material")) !!}
+                                     {!! Form::open(array('route' => 'profile.update','method'=>'PATCH', 'novalidate', 'class' => "form-horizontal form-material")) !!}
                                      <input type="hidden" id="avatar" name="avatar" value="">
                                      <input type="hidden" name="update_part" value="avatar">
                                      <button id="update_avatar" type="submit" class="btn waves-effect waves-light btn-rounded btn-outline-success">Met l'avatar à jour</button>
@@ -121,7 +121,7 @@
                                 
                                 <div class="tab-pane active" id="settings" role="tabpanel">
                                     <div class="card-body">
-                                    {!! Form::open(array('route' => ['clients.update', $client->id],'method'=>'PATCH', 'novalidate', 'class' => "form-horizontal form-material")) !!}
+                                    {!! Form::open(array('route' => 'profile.update','method'=>'PATCH', 'novalidate', 'class' => "form-horizontal form-material")) !!}
                                             <input type="hidden" name="update_part" value="connexion">
                                             <div class="form-group">
                                             <label class="control-label  col-md-12">Email <span class="text-mutted">*</span></label>
@@ -156,7 +156,7 @@
 
                                 <div class="tab-pane" id="extra_settings" role="tabpanel">
                                     <div class="card-body">
-                                    {!! Form::open(array('route' => ['clients.update', $client->id],'method'=>'PATCH', 'novalidate', 'class' => "form-horizontal form-material")) !!}
+                                    {!! Form::open(array('route' => 'profile.update','method'=>'PATCH', 'novalidate', 'class' => "form-horizontal form-material")) !!}
                                              <input type="hidden" name="update_part" value="client">        
                                              <div class="form-group">
                                             <label class="control-label col-md-12">Préom<span class="text-mutted">*</span></label>
@@ -206,7 +206,7 @@
                                 </div>
                                 <div class="tab-pane " id="accounts" role="tabpanel">
                                     <div class="card-body">
-                                    {!! Form::open(array('route' => ['clients.update', $client->id],'method'=>'PATCH', 'novalidate', 'class' => "form-horizontal ")) !!}
+                                    {!! Form::open(array('route' => 'profile.update','method'=>'PATCH', 'novalidate', 'class' => "form-horizontal ")) !!}
                                     <input type="hidden" name="update_part" value="accounts">     
                                         <div class="row">
                                         <div class="col-md-12">
