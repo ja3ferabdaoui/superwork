@@ -148,9 +148,8 @@ class AdminController extends Controller
 
        $data = array('username'=>$user->username);
 
-       Mail::send(['text'=>'mail'], $data, function($message) {
-          $message->to('jaafar.zbeiba@gmail.com', 'Super fich ')->subject
-             ('Laravel Basic Testing Mail');
+      Mail::send(['text'=>'mail'], ['data'=> $data], function($message) {
+          $message->to('jaafar.zbeiba@gmail.com', 'Super User ')->subject('Administrator Account Created');
           $message->from('jaafar.zbeiba@esprit.tn');
        });
        echo "Basic Email Sent. Check your inbox.";
