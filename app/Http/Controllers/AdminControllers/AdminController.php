@@ -1,14 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\AdminControllers;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Admin;
 use App\User;
 use Illuminate\Support\Facades\Storage;
-
 use Mail;
 class AdminController extends Controller
 {
@@ -22,7 +19,6 @@ class AdminController extends Controller
         $this->middleware('auth');
         $this->middleware('admin');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -35,17 +31,13 @@ class AdminController extends Controller
         $subTitle = "Liste Des Administrateurs";
         return view('administration.admins.index',compact('title', 'subTitle' , 'admins'));
     }
-
-
     public function show($id)
     {
         $admin = Admin::find($id);
         $title = "Administrateur";
         $subTitle = "Profile Administrateur";
         return view('administration.admins.profile',compact('title', 'subTitle' , 'admin'));
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -65,7 +57,6 @@ class AdminController extends Controller
         ]);
         $admin = Admin::find($id);
         $type = $request->get('update_part') ;
-
         if($type == "avatar"){
             $avatar_input = $request->only('avatar');
             if(!empty($user_input['password'])){
@@ -92,18 +83,14 @@ class AdminController extends Controller
             $admin_input = $request->only(["first_name", 'last_name']);
             $admin->update($admin_input);
         }
-
         return redirect()->route('admins.show', $id)
                         ->with('success','Admin updated successfully');
     }
-
-
     public function create(){
         $title = "Administrateurs";
         $subTitle = "Créee Administrateurs";
         return view('administration.admins.create',compact('title', 'subTitle'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -119,8 +106,6 @@ class AdminController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:6'
         ]);
-
-
         $input = $request->all();
         $user = User::create([
             'username' => $input['username'],
@@ -145,26 +130,23 @@ class AdminController extends Controller
             'user_id' => $user->id,
             'avatar' => $imageName
         ]);
-
-       $data = array('username'=>$user->username);
-
-      Mail::send(['text'=>'mail'], ['data'=> $data], function($message) {
-          $message->to('jaafar.zbeiba@gmail.com', 'Super User ')->subject('Administrator Account Created');
-          $message->from('jaafar.zbeiba@esprit.tn');
-       });
+        $data = array('name'=>$input['first_name']);
+        $mailclient=$input['email'];
+        Mail::send(['text'=>'mail'], ['data' => $data], function($message) use($mailclient) {
+           $message->to($mailclient, 'Super fich ')->subject
+              ('Inscription effectuée');
+           $message->from('jaafar.zbeiba@gmail.com');
+        });
        echo "Basic Email Sent. Check your inbox.";
         return redirect()->route('admins.index')
                         ->with('success','Compte administrateur crée avec succée');
     }
-
-
     public function lock($id){
         $admin = Admin::findOrFail($id);
         $admin->user->status =0;
         $admin->user->save();
         return \App::make('redirect')->back()->with("success","Admin account locked successfully");
     }
-
     public function unlock($id){
         $admin = Admin::findOrFail($id);
         $admin->user->status =1;

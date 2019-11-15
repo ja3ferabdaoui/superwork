@@ -1,4 +1,4 @@
-//Simple line chart 
+//Simple line chart
 
 new Chartist.Line('.ct-sm-line-chart', {
   labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -9,10 +9,8 @@ new Chartist.Line('.ct-sm-line-chart', {
   ]
 }, {
   fullWidth: true,
-  
-  plugins: [
-    Chartist.plugins.tooltip()
-  ],
+
+
   chartPadding: {
     right: 40
   }
@@ -28,9 +26,7 @@ new Chartist.Line('.ct-area-ln-chart', {
 }, {
   low: 0,
 
-  plugins: [
-    Chartist.plugins.tooltip()
-  ],
+
   showArea: true
 });
 
@@ -54,9 +50,7 @@ new Chartist.Line('#ct-polar-chart', {
   showLine: false,
   showPoint: true,
   fullWidth: true,
-  plugins: [
-    Chartist.plugins.tooltip()
-  ],
+ 
   axisX: {
     showLabel: true,
     showGrid: true

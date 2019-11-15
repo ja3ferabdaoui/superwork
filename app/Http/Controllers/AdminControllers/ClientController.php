@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\AdminControllers;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
@@ -24,7 +22,6 @@ class ClientController extends Controller
         $this->middleware('auth');
         $this->middleware('admin');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -37,7 +34,6 @@ class ClientController extends Controller
         $subTitle = "List Clients";
         return view('administration.clients.index',compact('title', 'subTitle' , 'clients'));
     }
-
     public function show($id)
     {
         $client = Client::find($id);
@@ -69,9 +65,7 @@ class ClientController extends Controller
         $title = "Client";
         $subTitle = "Profile Client";
         return view('administration.clients.profile',compact('title', 'subTitle' , 'client','countries','accounts'));
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -100,15 +94,15 @@ class ClientController extends Controller
             $image_extension = "";
             if(!empty($avatar_input['avatar'])){
             $image = $avatar_input["avatar"] ;
-            preg_match("/data:image\/(.*?);/",$image,$image_extension); 
-            $image = preg_replace('/data:image\/(.*?);base64,/','',$image); 
+            preg_match("/data:image\/(.*?);/",$image,$image_extension);
+            $image = preg_replace('/data:image\/(.*?);base64,/','',$image);
             $image = str_replace(' ', '+', $image);
             $imageName = 'image_' . $client->user->username . '.' . $image_extension[1];
             Storage::disk('public')->put($imageName,base64_decode($image));
             $avatar_input['avatar']= $imageName;
             $client->update($avatar_input);
         }
-        }   
+        }
         elseif($type == "connexion"){
             $user_input = $request->only(["username", 'email','password']);
             $client->user->update($user_input);
@@ -120,7 +114,7 @@ class ClientController extends Controller
         elseif($type == "accounts"){
             $accounts_types = $request->only(["facebook_account",'instagram_account','youtube_account','twitter_account']);
             $accounts_status = $request->only(["facebook_account_status","instagram_account_status","youtube_account_status","witter_account_status"]);
-            
+
             foreach($accounts_types as $key=>$value){
                 if($value != null){
                     $account = Account::where("client_id",$id)->where("type",$key)->first();
@@ -149,7 +143,7 @@ class ClientController extends Controller
                             'account_token' => $value,
                             'type' => $key,
                             'client_id' => $id,
-                            'status' => ($accounts_status[$key . "_status"] == "on") ? 1 : 0 
+                            'status' => ($accounts_status[$key . "_status"] == "on") ? 1 : 0
                         ]);
                     }
                 }
@@ -158,14 +152,12 @@ class ClientController extends Controller
         return redirect()->route('clients.show', $id)
                         ->with('success','Client updated successfully');
     }
-
     public function create(){
         $countries = $this->countriesList();
         $title = "Clients";
         $subTitle = "Créer Client";
         return view('administration.clients.create',compact('title', 'subTitle','countries'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -181,11 +173,9 @@ class ClientController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:6'
         ]);
-
-
         $input = $request->all();
         //dd($input);
-        
+
         $user = User::create([
             'username' => $input['username'],
             'email' => $input['email'],
@@ -197,13 +187,12 @@ class ClientController extends Controller
         $image_extension = "";
         if($input["avatar"] != null){
             $image = $input["avatar"] ;
-            preg_match("/data:image\/(.*?);/",$image,$image_extension); 
-            $image = preg_replace('/data:image\/(.*?);base64,/','',$image); 
+            preg_match("/data:image\/(.*?);/",$image,$image_extension);
+            $image = preg_replace('/data:image\/(.*?);base64,/','',$image);
             $image = str_replace(' ', '+', $image);
             $imageName = 'image_' . $user->username . '.' . $image_extension[1];
             Storage::disk('public')->put($imageName,base64_decode($image));
         }
-
         $client = Client::create([
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
@@ -213,16 +202,12 @@ class ClientController extends Controller
             'state' => $input['state'],
             'city' => $input['city'],
             'avatar' => $imageName
-
         ]);
 
-        
 
-
-        
         $accounts_types = $request->only(["facebook_account",'instagram_account','youtube_account','twitter_account']);
         $accounts_status = $request->only(["facebook_account_status","instagram_account_status","youtube_account_status","witter_account_status"]);
-        
+
         foreach($accounts_types as $key=>$value){
             if($value != null){
                     if(array_key_exists($key . "_status", $accounts_status)){
@@ -238,36 +223,36 @@ class ClientController extends Controller
                         'client_id' => $client->id,
                         'status' => $status
                     ]);
-                
+
             }
         }
 
-
-
-       
-
-       $data = array('name'=>$user->username);
-
-       Mail::send(['text'=>'mail'], ['data' => $data], function($message) {
-          $message->to('jaafar.zbeiba@gmail.com', 'Super fich ')->subject
-             ('Laravel Basic Testing Mail');
-          $message->from('jaafar.zbeiba@esprit.tn',$data['name']);
+       $data = array('name'=>$input['first_name']);
+       $mailclient=$input['email'];
+       Mail::send(['text'=>'mail'], ['data' => $data], function($message) use($mailclient) {
+          $message->to($mailclient, 'Super fich ')->subject
+             ('Inscription effectuée');
+          $message->from('jaafar.zbeiba@gmail.com');
        });
         return redirect()->route('clients.index')
                         ->with('success','User created successfully');
     }
-
     public function lock($id){
         $client = Client::findOrFail($id);
         $client->user->status = 0;
         $client->user->save();
         return \App::make('redirect')->back()->with("success","Client account locked successfully");
     }
-
     public function unlock($id){
         $client = Client::findOrFail($id);
         $client->user->status = 1;
         $client->user->save();
         return \App::make('redirect')->back()->with("success","Client account locked successfully");
+    }
+
+    public function showFacebook()
+    {
+          return view('users.dashboard.facebook');
+
     }
 }

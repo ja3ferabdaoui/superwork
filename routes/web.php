@@ -33,10 +33,11 @@ Route::group(['middleware' => ['auth','checkAccountStatus','admin'],
                     Route::post('admins/{id}/unlock','AdminControllers\AdminController@unlock');
                });
 
-Route::group(['middleware' => ['auth','checkAccountStatus','client']], 
+Route::group(['middleware' => ['auth','checkAccountStatus','client']],
                function () {
                     Route::get('/', 'ClientControllers\HomeController@index');
                     Route::get('home', 'ClientControllers\HomeController@index')->name('client.home');
+                     Route::get('facebook', 'ClientControllers\HomeController@showFacebook')->name('client.facebook');
                });
 
 

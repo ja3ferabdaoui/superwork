@@ -25,7 +25,7 @@
                         <li class="nav-small-cap">NAVIGATION</li>
                         <li>
                             <li><a href="/"><i class="mdi mdi-gauge"></i>Dashboard</a></li>
-                            <li><a href="#"><i class="fa fa-facebook"></i>Facebook </a></li>
+                            <li><a href="/facebook"><i class="fa fa-facebook"></i>Facebook </a></li>
                             <li><a href="#"><i class="fa fa-youtube"></i>Youtube </a></li>
                             <li><a href="#"><i class="fa fa-instagram"></i>Instagram </a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i>Twitter </a></li>

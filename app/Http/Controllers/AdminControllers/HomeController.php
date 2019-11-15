@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $title = "Dashboard";
         $subTitle = "Dashboard";
-        $clientsCount = DB::table('clients')->count();       
+        $clientsCount = DB::table('clients')->count();
         $clientsNotActivatedCount = DB::table('clients')
             ->join('users', 'users.id', '=', 'clients.user_id')
             ->where('users.status', 0)
@@ -39,4 +39,5 @@ class HomeController extends Controller
         return view('administration.dashboard.index',compact('title', 'subTitle','clientsCount', 'conversationsCount','conversationsNotVIewedCount','conversationNotViewedAverage',
         'clientInactivatedAverage', 'clientsNotActivatedCount' ));
     }
+
 }
