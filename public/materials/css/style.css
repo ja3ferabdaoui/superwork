@@ -8175,3 +8175,10 @@ a.list-group-item:hover {
     color: #fff !important;
     text-align: center;
 }
+.page-wrapper {
+    padding-top: 25px;
+}
+
+.dataTables_length select {
+    color: #fff;
+}
