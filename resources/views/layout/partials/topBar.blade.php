@@ -64,14 +64,20 @@
                                                 <p class="text-muted">{{ Auth::user()->email }}</p>
                                                 @if(Auth::user()->isAdmin())
                                                 <a href="{!! route('admins.show', ['id'=> Auth::user()->id]) !!}" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
-                                                @else
-                                                <a href="{!! route('clients.show', ['id'=> Auth::user()->id]) !!}" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                                                @elseif(Auth::user()->isClient())
+                                                <a href="{!! route('profile') !!}" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
                                                 @endif
                                                 </div>
                                         </div>
                                     </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                                    <li>
+                                    @if(Auth::user()->isAdmin())
+                                    <a href="{!! route('admins.show', ['id'=> Auth::user()->id]) !!}">
+                                    @elseif(Auth::user()->isClient())
+                                    <a href="{!! route('profile') !!}">
+                                    @endif
+                                    <i class="ti-user"></i> My Profile</a></li>
 
 
                                     <li role="separator" class="divider"></li>
