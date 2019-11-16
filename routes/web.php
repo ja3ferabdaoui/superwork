@@ -39,9 +39,10 @@ Route::group(['middleware' => ['auth','checkAccountStatus','client']],
                     Route::get('profile', 'ClientControllers\ClientController@profile')->name('profile');
                     Route::patch('profile', 'ClientControllers\ClientController@update')->name('profile.update');
                     Route::get('conversations', 'ClientControllers\ConversationController@index')->name('client.conversations');
+                    Route::get('conversations/create', 'ClientControllers\ConversationController@create')->name('client.create.conversation');
+
                     Route::get('conversations/{id}', 'ClientControllers\ConversationController@show')->name('client.show.conversations');
 
-                    Route::get('conversations/create', 'ClientControllers\ConversationController@create')->name('client.create.conversation');
 
                    
                     
