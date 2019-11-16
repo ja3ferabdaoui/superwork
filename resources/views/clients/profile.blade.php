@@ -112,7 +112,6 @@
                             <ul class="nav nav-tabs profile-tab" role="tablist">
                                 <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#settings" role="tab">Informations de connexion</a> </li>
                                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#extra_settings" role="tab">Informations de contact</a> </li>
-                                <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#accounts" role="tab">Comptes</a> </li>
 
                             </ul>
                             <!-- Tab panes -->
@@ -204,78 +203,6 @@
                                             {!! Form::close() !!}
                                     </div>
                                 </div>
-                                <div class="tab-pane " id="accounts" role="tabpanel">
-                                    <div class="card-body">
-                                    {!! Form::open(array('route' => 'profile.update','method'=>'PATCH', 'novalidate', 'class' => "form-horizontal ")) !!}
-                                    <input type="hidden" name="update_part" value="accounts">     
-                                        <div class="row">
-                                        <div class="col-md-12">
-                                        <label class="control-label m-t-20" for="example-input1-group2">Compte Facebook</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                    <button class="btn btn btn-facebook waves-effect waves-light" type="button"><i class="fa fa-facebook"></i></button>
-                                                    </span>
-                                                    <span class="input-group-addon" id="basic-addon1">#</span>
-                                                    <input type="text" name="facebook_account" class="form-control" value="{{ $accounts['facebook_account']['account_token']}}" placeholder="Identifiant Facebook...">
-                                                    <span class="input-group-addon">
-                                                    {{ Form::checkbox('facebook_account_status',null,$accounts['facebook_account']['status'], array('aria-label' => 'Checkbox for following text input','id'=>'facebook_account_status')) }}
-    
-                                                </span>
-                                                </div>
-                                         </div>
-
-                                        <div class="col-md-12">
-                                        <label class="control-label m-t-20" for="example-input1-group2">Compte Instagram</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                    <button class="btn btn btn-intagram waves-effect waves-light" type="button"><i class="fa fa-instagram"></i></button>
-                                                    </span>
-                                                    <span class="input-group-addon" id="basic-addon1">#</span>
-                                                    <input type="text" name="instagram_account" class="form-control" placeholder="Identifiant instagram..." value="{{ $accounts['instagram_account']['account_token']}}">
-                                                    <span class="input-group-addon">
-                                                    {{ Form::checkbox('instagram_account_status',null,$accounts['instagram_account']['status'], array('aria-label' => 'Checkbox for following text input','id'=>'instagram_account_status')) }}
-                                                </span>
-                                                </div>
-                                         </div>
-
-                                         <div class="col-md-12">
-                                        <label class="control-label m-t-20" for="example-input1-group2">Compte Twitter</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                    <button class="btn btn btn-twitter waves-effect waves-light" type="button"><i class="fa fa-twitter"></i></button>
-                                                    </span>
-                                                    <span class="input-group-addon" id="basic-addon1">@</span>
-                                                    <input type="text" name="twitter_account" value="{{ $accounts['twitter_account']['account_token']}}" class="form-control" placeholder="Identifiant Twitter...">
-                                                    <span class="input-group-addon">
-                                                    {{ Form::checkbox('twitter_account_status',null,$accounts['twitter_account']['status'], array('aria-label' => 'Checkbox for following text input','id'=>'twitter_account_status')) }}
-                                                    </span>
-                                                </div>
-                                         </div>
-
-                                         <div class="col-md-12">
-                                        <label class="control-label m-t-20" for="example-input1-group2">Compte Youtube</label>
-                                                <div class="input-group">
-                                                    <span class="input-group-btn">
-                                                    <button class="btn btn btn-youtube waves-effect waves-light" type="button"><i class="fa fa-youtube"></i></button>
-                                                    </span>
-                                                    <span class="input-group-addon" id="basic-addon1">@</span>
-                                                    <input type="text" name="youtube_account" value="{{ $accounts['youtube_account']['account_token']}}" class="form-control" placeholder="Identifiant Youtube...">
-                                                    <span class="input-group-addon">
-                                                    {{ Form::checkbox('youtube_account_status',null,$accounts['youtube_account']['status'], array('aria-label' => 'Checkbox for following text input','id'=>'youtube_account_status')) }}
-                                                    </span>
-                                                </div>
-                                         </div>
-                                         
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <button class="btn btn-success">Met à jour</button>
-                                                </div>
-                                            </div>
-                                </div>
-                                {!! Form::close() !!}
                             </div>
                         </div>
                     </div>
