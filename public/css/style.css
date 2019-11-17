@@ -571,4 +571,6 @@
         color:#000 !important;
     }
 
-    
+    .page-wrapper {
+        padding-top: 40px !important;
+    }
