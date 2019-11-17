@@ -8183,5 +8183,5 @@ a.list-group-item:hover {
     color: #fff;
 }
 .login-register [type="checkbox"] + label {
-    color:#000;
+    color:#000 !important;
 }
