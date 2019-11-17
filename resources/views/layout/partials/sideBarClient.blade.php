@@ -11,7 +11,7 @@
                     <div class="profile-text"> <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ Auth::user()->userAccount->first_name . " " . Auth::user()->userAccount->last_name }}</a>
                         <div class="dropdown-menu animated flipInY">
                             <a href="{!! route('profile') !!}" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                            
+
                             <div class="dropdown-divider"></div> <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                             <li><a href="#"><i class="fa fa-instagram"></i>Instagram </a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i>Twitter </a></li>
                             <li><a href="/profile"><i class="mdi mdi-account"></i>Profile</a></li>
-                            
+
                             <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Conversations</span></a>
                             <ul aria-expanded="false" class="collapse">
                                  <li><a href="/conversations">Conversation</a></li>

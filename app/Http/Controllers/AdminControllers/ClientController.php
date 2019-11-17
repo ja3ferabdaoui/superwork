@@ -231,7 +231,7 @@ class ClientController extends Controller
        Mail::send(['text'=>'mail'], ['data' => $data], function($message) use($mailclient) {
           $message->to($mailclient, 'Super fich ')->subject
              ('Inscription effectuée');
-          $message->from('jaafar.zbeiba@gmail.com');
+          $message->from('contactapi@superworks.fr');
        });
         return redirect()->route('clients.index')
                         ->with('success','User created successfully');
