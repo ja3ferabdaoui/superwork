@@ -44,8 +44,8 @@ Route::group(['middleware' => ['auth','checkAccountStatus','client']],
                     Route::get('conversations/{id}', 'ClientControllers\ConversationController@show')->name('client.show.conversations');
 
 
-                   
-                    
+
+
                     Route::post('conversations', 'ClientControllers\ConversationController@store')->name('client.store.conversation');
                     Route::get('home', 'ClientControllers\HomeController@index')->name('client.home');
                      Route::get('facebook', 'ClientControllers\HomeController@showFacebook')->name('client.facebook');

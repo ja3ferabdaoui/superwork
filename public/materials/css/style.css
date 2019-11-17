@@ -8182,3 +8182,6 @@ a.list-group-item:hover {
 .dataTables_length select {
     color: #fff;
 }
+.login-register [type="checkbox"] + label {
+    color:#000;
+}

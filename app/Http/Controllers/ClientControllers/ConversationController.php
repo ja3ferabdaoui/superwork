@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Client;
 use App\Admin;
-
+use Mail;
 use App\User;
 use App\Conversation;
 use Auth;
@@ -51,7 +51,7 @@ class ConversationController extends Controller
         else {
             $conversation->response ="";
         }
-         
+
         $title = "Conversation";
         $subTitle = "Mon Conversation";
         return view('clients.conversations.show',compact('title', 'subTitle' , 'conversation'));
@@ -73,6 +73,14 @@ class ConversationController extends Controller
             "status" => 0,
             "conversation_id" => null
         ]);
+        $data = array('name'=>auth()->user()->username);
+        $mailclient=auth()->user()->email;
+        $mailuser=auth()->user()->username;
+        Mail::send(['text'=>'mail'], ['data' => $data], function($message) use($mailclient,$mailuser) {
+           $message->to('contactapi@superworks.fr', 'Super fich ')->subject
+              ('Nouveau message de la part '.$mailuser);
+           $message->from($mailclient);
+        });
         return redirect()->route('client.conversations');
     }
 
@@ -92,6 +100,7 @@ class ConversationController extends Controller
             "status" => 0,
             "conversation_id" => $id
         ]);
+
         return redirect()->route('conversations.show', ['id' => $id]);
     }
 }
