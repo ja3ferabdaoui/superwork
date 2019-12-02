@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Edbizarro\LaravelFacebookAds\Providers\LaravelFacebookServiceProvider::class
 
     ],
 
@@ -228,6 +229,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
          'Html' => Collective\Html\HtmlFacade::class,
          'Image' => Intervention\Image\Facades\Image::class,
+         'FacebookAds' => Edbizarro\LaravelFacebookAds\Facades\FacebookAds::class
+
 
     ],
 

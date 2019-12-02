@@ -144,6 +144,8 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src= "{{ asset('materials/assets/plugins/styleswitcher/jQuery.style.switcher.js') }}"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v5.0"></script>
+
     @yield('pageScripts')
 </body>
 
