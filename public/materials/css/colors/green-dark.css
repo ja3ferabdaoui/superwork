@@ -36,7 +36,7 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #00acc1;
+  background: #ffff00;
 }
 
 .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
@@ -49,7 +49,7 @@ File: scss
 }
 
 .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: #000 !important;
 }
 
 .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
@@ -95,8 +95,9 @@ a.link:hover, a.link:focus {
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
-  border-bottom: 2px solid #26c6da;
-  color: #26c6da;
+    border-bottom: 2px solid #000000;
+    color: #000;
+    font-weight: 800;
 }
 
 .profile-tab li a.nav-link:hover,
@@ -131,7 +132,7 @@ a.link:hover, a.link:focus {
 /*sidebar navigation
 *******************/
 .card-no-border .left-sidebar, .card-no-border .sidebar-nav {
-  background: #272c33;
+  background: #ffff00;
 }
 
 .mini-sidebar .sidebar-nav {
@@ -149,7 +150,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li a {
-  color: #798699;
+  color: #000000;
 }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
@@ -165,8 +166,8 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li.active:hover > a {
-  color: #ffffff !important;
-  background: #26c6da !important;
+  color: #000000 !important;
+  background: #ffff00 !important;
 }
 
 .sidebar-nav > ul > li.active > a i, .sidebar-nav > ul > li.active:hover > a i {
@@ -182,7 +183,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav > ul > li > a i {
-  color: #798699;
+  color: #000000;
 }
 
 .sidebar-nav > ul > li > a.active {
@@ -192,9 +193,13 @@ a.link:hover, a.link:focus {
 }
 
 .user-profile .profile-text a {
-  color: #798699 !important;
+  color: #000000 !important;
 }
 
 .card-no-border .sidebar-footer {
-  background: #181c22;
+  background: #ffff00;
+}
+.user-profile .profile-text a
+{
+    color:#fff !important;
 }

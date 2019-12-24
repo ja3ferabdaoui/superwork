@@ -48,10 +48,8 @@ Route::group(['middleware' => ['auth','checkAccountStatus','client']],
 
                     Route::post('conversations', 'ClientControllers\ConversationController@store')->name('client.store.conversation');
                     Route::get('home', 'ClientControllers\HomeController@index')->name('client.home');
-                    Route::get('facebook', 'ClientControllers\FacebookController@index')->name('client.facebook');
-                    Route::get('instagram', 'ClientControllers\InstagramController@index')->name('client.instagram');
-
-                    });
+                     Route::get('facebook', 'ClientControllers\HomeController@showFacebook')->name('client.facebook');
+               });
 
 
 /*

@@ -79,7 +79,7 @@ class ClientController extends Controller
             $client_input = $request->only(["first_name", 'last_name', 'address', 'country', 'phone', 'city']);
             $client->update($client_input);
         }
-        
+
         return redirect()->route('clients.show', $id)
                         ->with('success','Client updated successfully');
     }
