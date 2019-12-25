@@ -26,7 +26,7 @@
     </div>
     <div id="main-wrapper">
 
-        @include('layout.partials.Topbar')
+        @include('layout.partials.topBar')
         @if(Auth::user()->isAdmin())
         @include('layout.partials.sideBar')
         @else

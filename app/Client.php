@@ -21,4 +21,13 @@ class Client extends Model
     {
         return $this->hasMany('App\Account');
     }
+
+    public function hasAccount($value = null)
+    {
+        $account = $this->accounts()->where('type',$value)->first();
+        if(!$account){
+            return false;
+        }
+        return true;
+    }
 }

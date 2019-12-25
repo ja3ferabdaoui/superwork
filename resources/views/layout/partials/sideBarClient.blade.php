@@ -24,9 +24,9 @@
                 <li>
                     <li><a href="/"><i class="mdi mdi-gauge"></i>Dashboard</a></li>
 
-                    {{-- @if(Auth::user()->userAccount->hasAccount('facebook_account')) --}}
+                    @if(Auth::user()->userAccount->hasAccount('facebook_account')) 
                     <li><a href="/facebook"><i class="fa fa-facebook"></i>Facebook </a></li>
-                    {{-- @endif --}}
+                    @endif
 
                     <li><a href="#"><i class="fa fa-youtube"></i>Youtube </a></li>
 
