@@ -1,10 +1,10 @@
 <?php
-namespace App\Http\Controllers\AdminControllers;
+namespace SuperWorks\Http\Controllers\AdminControllers;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use SuperWorks\Http\Controllers\Controller;
 use DB;
-use App\Admin;
-use App\User;
+use SuperWorks\Admin;
+use SuperWorks\User;
 use Illuminate\Support\Facades\Storage;
 use Mail;
 class AdminController extends Controller
@@ -130,11 +130,14 @@ class AdminController extends Controller
             'user_id' => $user->id,
             'avatar' => $imageName
         ]);
-        $data = array('name'=>$input['first_name']);
+        $data = [
+            'name' => $input['username'],
+            'password' => $input['password']
+     ];
         $mailclient=$input['email'];
-        Mail::send(['text'=>'mail'], ['data' => $data], function($message) use($mailclient) {
+        Mail::send(['html'=>'mail'], ['data' => $data], function($message) use($mailclient) {
            $message->to($mailclient, 'Super fich ')->subject
-              ('Inscription effectuée');
+              ('Admin crée');
            $message->from('contactapi@superworks.fr');
         });
        echo "Basic Email Sent. Check your inbox.";

@@ -1,12 +1,12 @@
 <?php
-namespace App\Http\Controllers\AdminControllers;
+namespace SuperWorks\Http\Controllers\AdminControllers;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use SuperWorks\Http\Controllers\Controller;
 use DB;
-use App\Client;
-use App\User;
-use App\Account;
-use App\Traits\CountriesTrait;
+use SuperWorks\Client;
+use SuperWorks\User;
+use SuperWorks\Account;
+use SuperWorks\Traits\CountriesTrait;
 use Illuminate\Support\Facades\Storage;
 use Mail;
 class ClientController extends Controller
@@ -226,9 +226,13 @@ class ClientController extends Controller
             }
         }
 
-       $data = array('name'=>$input['first_name']);
+
+       $data = [
+        'name' => $input['username'],
+        'password' => $input['password']
+ ];
        $mailclient=$input['email'];
-       Mail::send(['text'=>'mail'], ['data' => $data], function($message) use($mailclient) {
+       Mail::send(['html'=>'mail'], ['data' => $data], function($message) use($mailclient) {
           $message->to($mailclient, 'Super fich ')->subject
              ('Inscription effectuée');
           $message->from('contactapi@superworks.fr');

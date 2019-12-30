@@ -1356,15 +1356,18 @@ Buttons
 
 .btn-facebook {
   color: #ffffff;
-  background-color: #3b5998; }
+  background-color: #3b5998;
+  padding: .6rem .75rem; }
 
 .btn-twitter {
   color: #ffffff;
-  background-color: #55acee; }
+  background-color: #55acee;
+  padding: .6rem .75rem; }
 
 .btn-linkedin {
   color: #ffffff;
-  background-color: #007bb6; }
+  background-color: #007bb6;
+  padding: .6rem .75rem; }
 
 .btn-dribbble {
   color: #ffffff;
@@ -1376,7 +1379,8 @@ Buttons
 
 .btn-instagram {
   color: #ffffff;
-  background-color: #3f729b; }
+  background-color: #3f729b;
+  padding: .6rem .75rem; }
 
 .btn-pinterest {
   color: #ffffff;
@@ -1400,7 +1404,8 @@ Buttons
 
 .btn-youtube {
   color: #ffffff;
-  background-color: #bb0000; }
+  background-color: #bb0000;
+  padding: .6rem .75rem; }
 
 .btn-github {
   color: #ffffff;
@@ -8040,7 +8045,7 @@ Border Colors
 /*Background Colors light*/
 /*******************/
 .progress, .fc-day, .css-bar > i, .dropzone, code, .popover, .grid-stack-item-content, .form-control:disabled, .form-control[readonly], .input-group-addon, .select2-container--default .select2-selection--multiple .select2-selection__choice, .ms-container .ms-selectable, .ms-container .ms-selection, .wizard-content .wizard > .actions > ul > li > a[href="#previous"], .jsgrid-grid-header, .jsgrid-filter-row > .jsgrid-cell, .dropdown-menu, .mega-dropdown .dropdown-menu {
-  background-color: #383f48; }
+  background-color: #000000; }
 
 .grid-stack-item-content, .input-group-addon, .wizard-content .wizard > .steps > ul > li.current > a, .mailbox ul li .drop-title, .topbar .navbar-light .navbar-nav .nav-link {
   color: #ffffff; }
@@ -8180,7 +8185,7 @@ a.list-group-item:hover {
 }
 
 .dataTables_length select {
-    color: #fff;
+    color: #000;
 }
 .login-register [type="checkbox"] + label {
     color:#000 !important;
@@ -8251,4 +8256,16 @@ h1,h2,h3,h4,h5,h6 {
 .sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li.active:hover > a {
     background: #000 !important;
     color: #fff !important;
+}
+.wizard-content .wizard>.actions {
+    padding-top: 20px !important;
+    padding-right: 0px !important;
+}
+
+.wizard-content .wizard>.actions>ul>li>a[href="#previous"]{
+    color:#fff !important;
+}
+.wizard-content .wizard>.actions>ul>li>a{
+    background:yellow;
+    color:#000 !important;
 }

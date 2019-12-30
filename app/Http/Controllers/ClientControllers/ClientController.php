@@ -1,12 +1,12 @@
 <?php
-namespace App\Http\Controllers\ClientControllers;
+namespace SuperWorks\Http\Controllers\ClientControllers;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use SuperWorks\Http\Controllers\Controller;
 use DB;
-use App\Client;
-use App\User;
-use App\Account;
-use App\Traits\CountriesTrait;
+use SuperWorks\Client;
+use SuperWorks\User;
+use SuperWorks\Account;
+use SuperWorks\Traits\CountriesTrait;
 use Illuminate\Support\Facades\Storage;
 use Mail;
 use Auth;

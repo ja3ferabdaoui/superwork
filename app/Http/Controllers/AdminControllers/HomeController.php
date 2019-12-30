@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\AdminControllers;
+namespace SuperWorks\Http\Controllers\AdminControllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use SuperWorks\Http\Controllers\Controller;
 use DB;
 class HomeController extends Controller
 {

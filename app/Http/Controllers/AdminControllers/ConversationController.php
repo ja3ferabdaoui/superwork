@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\AdminControllers;
+namespace SuperWorks\Http\Controllers\AdminControllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use SuperWorks\Http\Controllers\Controller;
 use DB;
-use App\Client;
-use App\User;
-use App\Conversation;
+use SuperWorks\Client;
+use SuperWorks\User;
+use SuperWorks\Conversation;
 use Mail;
 class ConversationController extends Controller
 {

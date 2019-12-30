@@ -23,16 +23,15 @@
                 <li class="nav-small-cap">NAVIGATION</li>
                 <li>
                     <li><a href="/"><i class="mdi mdi-gauge"></i>Dashboard</a></li>
-
-                    @if(Auth::user()->userAccount->hasAccount('facebook_account')) 
+                    @if(Auth::user()->userAccount->hasAccount('facebook_account'))
                     <li><a href="/facebook"><i class="fa fa-facebook"></i>Facebook </a></li>
-                    @endif
-
+                     @endif
+                     @if(Auth::user()->userAccount->hasAccount('youtube_account'))
                     <li><a href="#"><i class="fa fa-youtube"></i>Youtube </a></li>
-
-
+                    @endif
+                    @if(Auth::user()->userAccount->hasAccount('instagram_account')) 
                     <li><a href="#"><i class="fa fa-instagram"></i>Instagram </a></li>
-
+                    @endif
                     <li><a href="/profile"><i class="mdi mdi-account"></i>Profile</a></li>
 
                     <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-email"></i><span class="hide-menu">Conversations</span></a>

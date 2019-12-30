@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SuperWorks;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,6 @@ class Conversation extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('SuperWorks\User');
     }
 }

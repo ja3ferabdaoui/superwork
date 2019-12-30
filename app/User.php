@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SuperWorks;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,7 +27,7 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo('App\Role');
+        return $this->belongsTo('SuperWorks\Role');
     }
  
     public function isAdmin(){
@@ -40,9 +40,9 @@ class User extends Authenticatable
 
     public function userAccount(){
         if($this->isAdmin()){
-            return $this->hasOne('App\Admin');
+            return $this->hasOne('SuperWorks\Admin');
         } elseif($this->isClient()){
-            return $this->hasOne('App\Client');
+            return $this->hasOne('SuperWorks\Client');
         }
     }
 }
