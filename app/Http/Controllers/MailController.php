@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SuperWorks\Http\Controllers;
 use Illuminate\Http\Request;
 use Mail;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use SuperWorks\Http\Requests;
+use SuperWorks\Http\Controllers\Controller;
 
 class MailController extends Controller {
    public function basic_email() {

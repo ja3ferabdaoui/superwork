@@ -1,5 +1,5 @@
 <?php
-namespace App\Traits;
+namespace SuperWorks\Traits;
 trait CountriesTrait
 {
   public function countriesList()

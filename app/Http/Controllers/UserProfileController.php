@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SuperWorks\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use SuperWorks\Http\Requests;
 use Auth;
 use Image;
 class UserProfileController extends Controller

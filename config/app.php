@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'SuperWorks'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        SuperWorks\Providers\AppServiceProvider::class,
+        SuperWorks\Providers\AuthServiceProvider::class,
+        // SuperWorks\Providers\BroadcastServiceProvider::class,
+        SuperWorks\Providers\EventServiceProvider::class,
+        SuperWorks\Providers\RouteServiceProvider::class,
 
     ],
 

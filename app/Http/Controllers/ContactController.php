@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SuperWorks\Http\Controllers;
 
-use App\Http\Requests\ContactRequest;
+use SuperWorks\Http\Requests\ContactRequest;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\Contact;
+use SuperWorks\Mail\Contact;
 
 class ContactController extends Controller
 {

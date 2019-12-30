@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\ClientControllers;
+namespace SuperWorks\Http\Controllers\ClientControllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use SuperWorks\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     /**

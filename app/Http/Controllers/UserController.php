@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Http\Controllers;
+namespace SuperWorks\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\User;
+use SuperWorks\Http\Controllers\Controller;
+use SuperWorks\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;

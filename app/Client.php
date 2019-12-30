@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SuperWorks;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,11 +14,19 @@ class Client extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('SuperWorks\User');
     }
 
     public function accounts()
     {
-        return $this->hasMany('App\Account');
+        return $this->hasMany('SuperWorks\Account');
+    }
+    public function hasAccount($value = null)
+    {
+        $account = $this->accounts()->where('type',$value)->first();
+        if(!$account){
+            return false;
+        }
+        return true;
     }
 }
