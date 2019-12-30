@@ -29,4 +29,13 @@ class Client extends Model
         }
         return true;
     }
+
+    public function hasAccount($value = null)
+    {
+        $account = $this->accounts()->where('type',$value)->first();
+        if(!$account){
+            return false;
+        }
+        return true;
+    }
 }
