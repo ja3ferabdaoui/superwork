@@ -174,6 +174,7 @@ return [
         // SuperWorks\Providers\BroadcastServiceProvider::class,
         SuperWorks\Providers\EventServiceProvider::class,
         SuperWorks\Providers\RouteServiceProvider::class,
+        alchemyguy\YoutubeLaravelApi\YoutubeLaravelApiServiceProvider::class
 
     ],
 

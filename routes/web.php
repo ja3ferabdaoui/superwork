@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,3 +70,51 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products','ProductController');
 });
 */
+
+
+
+
+use  alchemyguy\YoutubeLaravelApi\AuthenticateService;  
+
+Route::get('jaafar',function(){
+
+
+
+if (!file_exists('/home/jaafar/projets/new/Projetlarvaelkpi/vendor/autoload.php')) {
+  throw new Exception(sprintf('Please run "composer require google/apiclient:~2.0" in "%s"', __DIR__));
+}
+require_once '/home/jaafar/projets/new/Projetlarvaelkpi/vendor/autoload.php';
+
+$client = new Google_Client();
+$client->setApplicationName('API code samples');
+
+
+// TODO: For this request to work, you must replace
+//       "YOUR_CLIENT_SECRET_FILE.json" with a pointer to your
+//       client_secret.json file. For more information, see
+//       https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+$client->setAuthConfig('/home/jaafar/projets/new/Projetlarvaelkpi/client_secret.json');
+$client->addScope(Google_Service_Analytics::ANALYTICS_READONLY);    
+$client->setAccessType('offline');
+$client->setApprovalPrompt('force');
+// Request authorization from the user.
+$authUrl = $client->createAuthUrl();
+printf("Open this link in your browser:\n%s\n", $authUrl);
+print('Enter verification code: ');
+
+ print $authUrl;
+
+$authCode = '4/vAEC-4GaJF1k_kLcLL4nYm_TOSf7ddiqMPjP2yL2MTG3UTpku3uua3pKtMlyJPCsPte_AhsfQ4LaWyoR5P2MRGk'; // insert the verification code that you get after going to url in $authurl
+file_put_contents('token.json', $client->authenticate($authCode));
+
+ 
+// Exchange authorization code for an access token.
+$client->setAccessToken(file_get_contents('token.json'));
+
+// Define service object for making API requests.
+$service = new Google_Service_YouTubeAnalytics($client);
+
+return $response = $service->reports->query();
+print_r($response);
+
+});
